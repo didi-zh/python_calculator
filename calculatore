@@ -1,0 +1,49 @@
+print ("Helllo! Welcome to my advaceд calculator!")
+sequence = input ("Write your problem:" )
+
+list_sequence = list(sequence)
+
+
+while "*" in list_sequence or "/" in list_sequence:
+   
+    if "*" in list_sequence:
+        multi_position = list_sequence.index("*")
+        multi_num1 = float(list_sequence[multi_position - 1])
+        multi_num2 = float(list_sequence[multi_position + 1])
+        multi_result = multi_num1 * multi_num2 
+        list_sequence[multi_position - 1 : multi_position + 2] = [str(multi_result)]
+    
+    if "/" in list_sequence:
+        def_position = list_sequence.index("/")
+        def_num1 = float(list_sequence[def_position - 1])
+        def_num2 = float(list_sequence[def_position + 1])
+        
+        if def_num2 ==0:
+            print("Error! You cant devide by 0.")
+            breakpoint
+        
+        else:
+            def_result = def_num1 / def_num2     
+            list_sequence[def_position- 1 : def_position + 2] = [str(def_result)]
+
+while "+" in list_sequence or "-" in list_sequence:
+   
+    if "+" in list_sequence:
+        sub_position = list_sequence.index("+")
+        sub_num1 = float(list_sequence[sub_position - 1])
+        sub_num2 = float(list_sequence[sub_position + 1])
+        sub_result = sub_num1 + sub_num2 
+        list_sequence[sub_position - 1 : sub_position + 2] = [str(sub_result)]
+    
+    if "-" in list_sequence:
+        min_position = list_sequence.index("-")
+        min_num1 = float(list_sequence[min_position - 1])
+        min_num2 = float(list_sequence[min_position + 1])
+        min_result = min_num1 - min_num2  
+        list_sequence[min_position - 1 : min_position + 2] = [str(min_result)]
+
+
+
+
+
+print(list_sequence)
