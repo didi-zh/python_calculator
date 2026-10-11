@@ -46,4 +46,4 @@ while "+" in list_sequence or "-" in list_sequence:
 
 
 
-print(list_sequence)
+print("Result:",list_sequence)
