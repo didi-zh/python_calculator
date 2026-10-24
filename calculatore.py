@@ -2,47 +2,72 @@ import tkinter as tk
 
 def calculate(sequence):
     list_sequence = list(sequence)
-
-    while "*" in list_sequence or "/" in list_sequence:
     
-        if "*" in list_sequence:
-            multi_position = list_sequence.index("*")
-            multi_num1 = float(list_sequence[multi_position - 1])
-            multi_num2 = float(list_sequence[multi_position + 1])
-            multi_result = multi_num1 * multi_num2 
-            list_sequence[multi_position - 1 : multi_position + 2] = [str(multi_result)]
-        
-        if "/" in list_sequence:
-            def_position = list_sequence.index("/")
-            def_num1 = float(list_sequence[def_position - 1])
-            def_num2 = float(list_sequence[def_position + 1])
-            
-            if def_num2 ==0:
-                print("Error! You cant devide by 0.")
-                breakpoint
-            
-            else:
-                def_result = def_num1 / def_num2     
-                list_sequence[def_position- 1 : def_position + 2] = [str(def_result)]
-
-    while "+" in list_sequence or "-" in list_sequence:
+    if not sequence:
+        return ""
     
-        if "+" in list_sequence:
-            sub_position = list_sequence.index("+")
-            sub_num1 = float(list_sequence[sub_position - 1])
-            sub_num2 = float(list_sequence[sub_position + 1])
-            sub_result = sub_num1 + sub_num2 
-            list_sequence[sub_position - 1 : sub_position + 2] = [str(sub_result)]
+    operators = "+-*/"
+    has_operator = any(op in sequence for op in operators)
+    
+    # Ако НЯМА оператор (т.е. е само текст или едно число)
+    if not has_operator:
+        try:
+            # Опитваме се да го превърнем в число (напр. ако потребителят е написал само "5")
+            num = float(sequence)
+            return str(int(num)) if num.is_integer() else str(sequence)
+        except ValueError:
+            # Ако не е число и няма оператори значи е произволен стринг/букви
+            return "Not a number"
         
-        if "-" in list_sequence:
-            min_position = list_sequence.index("-")
-            min_num1 = float(list_sequence[min_position - 1])
-            min_num2 = float(list_sequence[min_position + 1])
-            min_result = min_num1 - min_num2  
-            list_sequence[min_position - 1 : min_position + 2] = [str(min_result)]
+    if sequence[-1] in operators:
+        return "Syntax Error"
 
-    return "".join(list_sequence)
+    try:
+        list_sequence = list(sequence)
 
+        while "*" in list_sequence or "/" in list_sequence:
+        
+            if "*" in list_sequence:
+                multi_position = list_sequence.index("*")
+                multi_num1 = float(list_sequence[multi_position - 1])
+                multi_num2 = float(list_sequence[multi_position + 1])
+                multi_result = multi_num1 * multi_num2 
+                list_sequence[multi_position - 1 : multi_position + 2] = [str(multi_result)]
+            
+            if "/" in list_sequence:
+                def_position = list_sequence.index("/")
+                def_num1 = float(list_sequence[def_position - 1])
+                def_num2 = float(list_sequence[def_position + 1])
+                
+                if def_num2 ==0:
+                    return "Error: Division by 0"
+                
+                else:
+                    def_result = def_num1 / def_num2     
+                    list_sequence[def_position- 1 : def_position + 2] = [str(def_result)]
+
+        while "+" in list_sequence or "-" in list_sequence:
+        
+            if "+" in list_sequence:
+                sub_position = list_sequence.index("+")
+                sub_num1 = float(list_sequence[sub_position - 1])
+                sub_num2 = float(list_sequence[sub_position + 1])
+                sub_result = sub_num1 + sub_num2 
+                list_sequence[sub_position - 1 : sub_position + 2] = [str(sub_result)]
+            
+            if "-" in list_sequence:
+                min_position = list_sequence.index("-")
+                min_num1 = float(list_sequence[min_position - 1])
+                min_num2 = float(list_sequence[min_position + 1])
+                min_result = min_num1 - min_num2  
+                list_sequence[min_position - 1 : min_position + 2] = [str(min_result)]
+
+        return "".join(list_sequence)
+    
+    except (IndexError, ValueError):
+        return "Syntax Error"
+
+    
 def on_equal_press():
     current_text = display.get()       
     result = calculate(current_text)   
