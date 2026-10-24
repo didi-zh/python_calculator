@@ -9,15 +9,15 @@ def calculate(sequence):
     operators = "+-*/"
     has_operator = any(op in sequence for op in operators)
     
-    # Ако НЯМА оператор (т.е. е само текст или едно число)
+
     if not has_operator:
         try:
-            # Опитваме се да го превърнем в число (напр. ако потребителят е написал само "5")
+           
             num = float(sequence)
             return str(int(num)) if num.is_integer() else str(sequence)
         except ValueError:
-            # Ако не е число и няма оператори значи е произволен стринг/букви
-            return "Not a number"
+             return "Not a number"           
+
         
     if sequence[-1] in operators:
         return "Syntax Error"
