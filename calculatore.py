@@ -15,6 +15,8 @@ def calculate(sequence):
             num = float(sequence)
             return str(int(num)) if num.is_integer() else str(sequence)
         except ValueError:  
+            return "Not a number"
+        
     if sequence[-1] in operators:
         return "Syntax Error"
 
