@@ -84,6 +84,7 @@ def exit_app():
 root = tk.Tk()
 root.title("My calculator!")
 root.geometry("450x400")
+root.resizable(False, False)
 
 label = tk.Label(root, text = "Welcome to my calculator!", font = ("Arial", 12))
 label.pack()
