@@ -1,4 +1,4 @@
-# 🧮 Calculator with Prioritisation
+# Calculator with Prioritisation
 
 ---
 
@@ -6,7 +6,7 @@ A desktop calculator application built in **Python** using a Graphical User Inte
 
 ---
 
-## 🌟 Key Features
+## Key Features
 
 ---
 
@@ -17,7 +17,7 @@ A desktop calculator application built in **Python** using a Graphical User Inte
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 * **Language:** Python 3
 * **Library:** `tkinter` (GUI)
