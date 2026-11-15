@@ -16,7 +16,7 @@ A desktop calculator application built in **Python** using a Graphical User Inte
 * **Interactive Buttons:** Seamlessly Connects screen buttons to the calculation logic.
 
 
-![Calculator_interface](.image/python_calculator/Calculator_interface.png)
+![Calculator_interface](Calculator_interface.png)
 ---
 
 ## Tech Stack
