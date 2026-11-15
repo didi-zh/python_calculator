@@ -15,6 +15,8 @@ A desktop calculator application built in **Python** using a Graphical User Inte
 * **Error Handling:** Safely manages edge cases such as division by zero, syntax errors, and invalid inputs without crashing.
 * **Interactive Buttons:** Seamlessly Connects screen buttons to the calculation logic.
 
+
+![Calculator_interface](.D:\diana\Programming\python_calculator)
 ---
 
 ## Tech Stack
